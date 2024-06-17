@@ -26,7 +26,6 @@ class StoreDespesaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'required|exists:users,id',
             'descricao' => 'required|string|max:191',
             'valor' => 'required|numeric|min:0',
             'data' => 'required|date|after:today',
@@ -36,8 +35,6 @@ class StoreDespesaRequest extends FormRequest
     public function messages()
     {
         return [
-            'user_id.required' => 'O ID do usuário é obrigatório.',
-            'user_id.exists' => 'O ID do usuário deve existir na tabela de usuários.',
             'descricao.required' => 'A descrição é obrigatória.',
             'descricao.string' => 'A descrição deve ser uma string.',
             'descricao.max' => 'A descrição não pode ter mais de 191 caracteres.',
